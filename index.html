@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body style="background-image: url(bg.jpg);">
+<h3>Score: <span class="score">0</span></h3>
+<h3>Bugs: <span class="bugs">0</span></h3>
+<h3>Time left: <span class="time">20</span> sec</h3>
+<script type="text/javascript">
+let score = 0
+let bugs = 0
+
+let timer = function(){
+	if (score>15) {
+		alert("Wow! You win!")
+		clearInterval(interval)
+		clearInterval(intervalestus)
+		// alert("Round 2 Fight!")
+		// setInterval(x,900)
+		// setTimeout(timer,20000)
+	}
+	if (bugs>15) {
+		alert("you lose")
+		clearInterval(interval)
+		clearInterval(intervalestus)
+	}
+}
+// let timer2 = function(){
+// 	if (score>(score-15)) {
+// 		alert("Wow! You win! 2 rounds!")
+// 		clearInterval()
+// 	}
+// 	if (bugs>15) {
+// 		alert("you lose")
+// 		clearInterval()
+// 	}
+// }
+let tumer = 20000;
+let rand = function(arg){
+		random = Math.round(Math.random()*(arg))+"px"
+		return random;
+	}
+let x = function(){
+	let bug = document.createElement('img');
+	document.body.appendChild(bug);
+	bug.src = "img.svg"
+	//bug.style.backgroundColor = "red"
+	bug.style.width = "100px"
+	bug.style.height = "100px"
+	bug.style.marginTop = rand(550)
+	bug.style.marginLeft = rand(1400)
+	bug.style.position = "absolute"
+	bugs +=1
+	document.querySelector(".bugs").innerHTML = bugs
+	bug.onclick = function(){
+		bug.style.display = "none"
+		score+=1
+		bugs-=1
+		document.querySelector(".score").innerHTML = score
+		document.querySelector(".bugs").innerHTML = bugs
+	}
+	document.querySelector(".time").innerHTML -= 1;
+	tumer.innerHTML -= 1;
+}
+let time_estus = function(){
+	estus.style.display = "none"
+}
+let e = function(){
+	let estus = document.createElement('img');
+	document.body.appendChild(estus);
+	estus.src = "estus2.png"
+	//estus.style.backgroundColor = "green"
+	estus.style.width = "100px"
+	estus.style.height = "100px"
+	estus.style.marginTop = rand(550)
+	estus.style.marginLeft = rand(1400)
+	estus.style.position = "absolute"
+	setTimeout(time_estus,3000)
+	estus.onclick = function(){
+		estus.style.display = "none"
+		time = Number(document.querySelector(".time").innerHTML)
+		time += 3;
+		document.querySelector(".time").innerHTML = time
+		setTimeout(timer,time)
+		clearTimeout(tt)
+		clearTimeout(xx)
+		let xx = setTimeout(timer,tumer)
+	}
+}
+let interval = setInterval(x,1000)
+let intervalestus = setInterval(e,5000)
+let tt = setTimeout(timer,tumer)
+
+
+
+</script>
+</body>
+</html>
